@@ -6,5 +6,5 @@ def find_common_participants(group_1, group_2, delit=','): # TODO Напишит
 
 participants_first_group = "Иванов|Петров|Сидоров"
 participants_second_group = "Петров|Сидоров|Смирнов"
-common = find_common_participants(participants_first_group, participants_second_group)
+common = find_common_participants(participants_first_group, participants_second_group, delit='|')
 print("Общие участники:", common)# TODO Провеьте работу функции с разделителем отличным от запятой
