@@ -6,14 +6,21 @@ class SocialMedia:
     Документация на класс.
     Класс описывает модель профиля социальной сети.
     """
-    def __init__(self, name: str, nickname: str):
-        """Инициализация экземпляра класса."""
+    def __init__(self, name: str, nickname: str) -> None:
+        """Инициализация экземпляра класса.
+        
+        :param name: Имя и фамилия пользователя.
+        :param nickname: Никнейм пользователя.
+        """
         self.name = "Вася Васечкин" #Имя и фамилия пользователя
         self.nickname = "Vasiliy_Vasechkin2004" #Никнейм пользователя
         self.posts = []  # Список для хранения публикаций
 
-    def add_post(self, content: str):
-        """ Добавляет новый пост в профиль. """
+    def add_post(self, content: str) -> None:
+        """ Добавляет новый пост в профиль. 
+        
+        :param content: Содержимое поста.
+        """
         post = {
             'content': content,
             'likes': 0,
@@ -21,14 +28,17 @@ class SocialMedia:
         }
         self.posts.append(post)
 
-    def like_post(self, post_index: int):
-        """ Увеличивает количество лайков у поста. """
+    def like_post(self, post_index: int) -> None:
+        """ Увеличивает количество лайков у поста.
+
+        :param post_index: Индекс поста в списке публикаций. 
+        """
         if 0 <= post_index < len(self.posts):
             self.posts[post_index]['likes'] += 1
         else:
             print("Пост с таким индексом не существует.")
 
-    def display_profile(self):
+    def display_profile(self) -> None:
         """Отображает информацию о профиле."""
         print(f"Имя: {self.name}")
         print(f"Никнейм: {self.nickname}")
@@ -61,13 +71,18 @@ class Garden:
     Документация на класс.
     Класс описывает модель итогового числа фруктов в саду.
     """
-    def __init__(self, apples: int, bananas: int):
-        """ Инициализация экземпляра класса. Ожидаемое количество урожая"""
-        self.apples = 30
-        self.bananas = 15
+    def __init__(self, apples: int, bananas: int) -> None:
+        """ Инициализация экземпляра класса. Ожидаемое количество урожая.
+        :param apples: Начальное количество яблок в саду.
+        :param bananas: Начальное количество бананов в саду.
+        """
+        self.apples = 30 #количество яблок
+        self.bananas = 15 #количество бананов
 
-    def add_apples(self, count: int):
+    def add_apples(self, count: int) -> None:
         """ Добавляет указанное количество яблок.
+
+        :param count: Количество яблок для добавления.
 
         >>> garden = Garden(10, 5)
         >>> garden.add_apples(5)
@@ -76,8 +91,10 @@ class Garden:
         """
         self.apples += count
 
-    def add_bananas(self, count: int):
+    def add_bananas(self, count: int) -> None:
         """ Добавляет указанное количество бананов.
+
+        :param count: Количество бананов для добавления.
 
         >>> garden = Garden(10, 5)
         >>> garden.add_bananas(3)
@@ -106,21 +123,31 @@ class Students:
     Документация на класс.
     Класс описывает модель информации о студенте.
     """
-    def __init__(self, name: str, age: int):
-        """ Инициализация экземпляра класса. """
+    def __init__(self, name: str, age: int) -> None:
+        """ Инициализация экземпляра класса.
+
+        :param name: Имя студента.
+        :param age: Возраст студента.
+        """
         self.name = name
         self.age = age
 
-    def get_info(self):
+    def get_info(self) -> str:
         """ Возвращает информацию о студенте.
+
+        :return: Информация о студенте в виде строки.
+        
         >>> student = Students("Алёна Кузнецова", 20)
         >>> student.get_info()
         'Имя: Алёна Кузнецова, Возраст: 20'
         """
         return f'Имя: {self.name}, Возраст: {self.age}'
 
-    def set_name(self, name: str):
+    def set_name(self, name: str) -> None:
         """ Устанавливает имя студента.
+
+        :param name: Новое имя студента.
+        
         >>> student = Students("Алёна Кузнецова", 20)
         >>> student.set_name("Иван Иванов")
         >>> student.get_info()
@@ -128,8 +155,11 @@ class Students:
         """
         self.name = name
 
-    def set_age(self, age: int):
+    def set_age(self, age: int) -> None:
         """ Устанавливает возраст студента.
+
+        :param age: Новый возраст студента.
+        
         >>> student = Students("Алёна Кузнецова", 20)
         >>> student.set_age(21)
         >>> student.get_info()
